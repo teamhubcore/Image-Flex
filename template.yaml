@@ -77,10 +77,13 @@ Resources:
     Properties:
       BucketName: !Sub ${AWS::StackName}-cflogs
       PublicAccessBlockConfiguration:
-        BlockPublicAcls: Yes
-        BlockPublicPolicy: Yes
-        IgnorePublicAcls: Yes
-        RestrictPublicBuckets: Yes
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
 
   UriToS3KeyFunction:
     Type: AWS::Serverless::Function
